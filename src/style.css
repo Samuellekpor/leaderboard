@@ -20,7 +20,7 @@
 
 .scores-container {
   border: #000 3px solid;
-  width: -webkit-fill-available;
+  width: 100%;
 }
 
 .recent-scores {
