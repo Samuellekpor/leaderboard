@@ -16,3 +16,9 @@ const addScore = async (username, score) => {
   return res;
 };
 
+const getScores = async () => {
+  const response = await fetch(`${url}${gameID}/scores/`);
+  const data = await response.json();
+  return data;
+};
+
