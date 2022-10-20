@@ -22,3 +22,11 @@ const getScores = async () => {
   return data;
 };
 
+const displayScores = (scores) => {
+  scores.forEach(score => {
+    const scoreRow = document.createElement('tr');
+    scoreRow.className = 'score-row';
+    scoreRow.innerHTML = `<td class="name">${score.user}: ${score.score}</td>`;
+    scoresContainer.appendChild(scoreRow);
+  });
+}
