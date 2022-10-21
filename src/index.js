@@ -2,31 +2,56 @@ import './style.css';
 
 const form = document.querySelector('form');
 const refresh = document.querySelector('.refresh-btn');
-const scoresContainer = document.querySelector('.scores-container');
+
 const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/`;
-const gameID = 'Pk5uoKBoacOJcYrWGAJB';
+const gameID = 'JShZvm7cAFqsSmGIRLe0';
 
 const addScore = async (username, score) => {
+  const newScore = {
+    user: username,
+    score: score
+  }
   const response = await fetch(`${url}${gameID}/scores/`, {
     method: 'POST',
-    headers: { 'Content-type': 'application/json' },
-    body: JSON.stringify({ username, score }),
+    headers: {'Content-type': 'application/json'},
+    body: JSON.stringify(newScore),
   });
-  const res = await response.json();
-  return res;
+  const data = await response.json();
+  getScores();
+  return data;
 };
 
 const getScores = async () => {
   const response = await fetch(`${url}${gameID}/scores/`);
   const data = await response.json();
-  return data;
+  if (response.ok) {
+    displayScores(data.result);
+  }
 };
 
 const displayScores = (scores) => {
-  scores.forEach(score => {
-    const scoreRow = document.createElement('tr');
-    scoreRow.className = 'score-row';
-    scoreRow.innerHTML = `<td class="name">${score.user}: ${score.score}</td>`;
-    scoresContainer.appendChild(scoreRow);
+  const scoresContainer = document.querySelector('.scores-container');
+  scoresContainer.innerHTML = '';
+  scores.sort((a, b) => b.score - a.score);
+  scores.forEach((element) => {
+    const row = document.createElement('tr');
+    row.className = 'score-row';
+    row.innerHTML = `<td class="name">${element.user} : </td>
+    <td class="name">${element.score}</td>`;
+    scoresContainer.appendChild(row);
   });
 }
+
+getScores();
+
+refresh.addEventListener('click', getScores)
+
+form.addEventListener('submit', async (event) => {
+  const name = document.querySelector('#name').value;
+  const score = document.querySelector('#score').value;
+  event.preventDefault();
+  addScore(name, score);
+  document.querySelector('#name').value = '';
+  document.querySelector('#score').value = '';
+})
+
