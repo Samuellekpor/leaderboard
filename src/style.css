@@ -3,6 +3,13 @@
   padding: 0;
 }
 
+main {
+  color: #fff;
+  background: url(./back.png) no-repeat;
+  background-size: cover;
+  padding-top: 30px;
+}
+
 .container {
   display: flex;
   justify-content: space-around;
@@ -18,9 +25,22 @@
   margin-right: 30px;
 }
 
+.add-title {
+  padding: 15px 0;
+}
+
 .scores-container {
-  border: #000 3px solid;
+  border-radius: 5px;
+  box-shadow: #929292 3px 5px;
   width: 100%;
+}
+
+input {
+  width: 250px;
+  height: 25px;
+  border-radius: 5px;
+  border-color:transparent;
+  font-size: 15px;
 }
 
 .recent-scores {
@@ -43,6 +63,7 @@
 
 .add-title {
   padding: 15px 0;
+  margin-bottom: 20px;
 }
 
 form {
@@ -55,10 +76,19 @@ form * {
   margin-bottom: 20px;
 }
 
+button {
+  background-color: #006eff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  border: 0;
+}
+
 tr:nth-child(even) {
-  background-color: #fff;
+  background-color: #1c7eff;
+  border: #1c7eff 2px solid;
 }
 
 tr:nth-child(odd) {
-  background-color: #ddd;
+  background-color: #0053be;
 }
