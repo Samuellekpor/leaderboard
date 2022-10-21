@@ -27,11 +27,14 @@ To get the content of this project locally you need to run the following command
 ```bash
 git clone https://github.com/Samuellekpor/leaderboard.git
 ```
-3. To access cloned directory run:
+2. To access cloned directory run:
 ```bash
-cd MyPortfolio
+cd leaderboard
 ```
-3. Open it with the live server
+3. Open it with the live server by running:
+```bash 
+npm run start
+```
 
 ### Install
 > To install linters and other project's dependencies run:
