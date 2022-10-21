@@ -25,10 +25,6 @@ main {
   margin-right: 30px;
 }
 
-.add-title {
-  padding: 15px 0;
-}
-
 .scores-container {
   border-radius: 5px;
   box-shadow: #929292 3px 5px;
@@ -39,7 +35,7 @@ input {
   width: 250px;
   height: 25px;
   border-radius: 5px;
-  border-color:transparent;
+  border-color: transparent;
   font-size: 15px;
 }
 
